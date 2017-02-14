@@ -26,8 +26,10 @@
                 <th colspan="2"> Products in store</th>
               </tr>
             </thead>
-
-            <tbody>
+            <!-- Alternative syntax:
+           ng-hide="store.product.soldOut"
+           -->
+            <tbody ng-show="!store.product.soldOut">
               <tr>
                 <th>Product Name</th>
                 <td>{{store.product.name}}</td>
@@ -42,7 +44,15 @@
               </tr>
               <tr>
                 <td colspan="2" class="text-align:center;" ng-show="store.product.canPurchase">
-                  <button class="btn btn-primary" ng-show="store.product.canPurchase">Purchase</button>
+                  <button class="btn btn-primary">Purchase</button>
+                </td>
+              </tr>
+            </tbody>
+
+            <tbody ng-show="store.product.soldOut">
+              <tr>
+                <td colspan="2" class="text-align:center;">
+                  <button class="btn btn-primary">No Products Available</button>
                 </td>
               </tr>
             </tbody>
