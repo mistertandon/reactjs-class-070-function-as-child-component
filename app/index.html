@@ -40,29 +40,29 @@
 
     <div class="row">
 
-      <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-10 col-md-offset-1" ng-controller="TabController as Tab_C">
 
         <ul class="nav nav-tabs">
-          <li role="presentation" ng-click="tab=1" ng-class="{active:tab === 1}">
+          <li role="presentation" ng-click="Tab_C.setActiveTab(1)" ng-class="{active:Tab_C.isActiveTab(1)}">
             <a href="#">About Samsung</a>
           </li>
-          <li role="presentation" ng-click="tab=2" ng-class="{active:tab === 2}">
+          <li role="presentation" ng-click="Tab_C.setActiveTab(2)" ng-class="{active:Tab_C.isActiveTab(2)}">
             <a href="#">Featured Products</a>
           </li>
-          <li role="presentation" ng-click="tab=3" ng-class="{active:tab === 3}">
+          <li role="presentation" ng-click="Tab_C.setActiveTab(3)" ng-class="{active:Tab_C.isActiveTab(3)}">
             <a href="#">Review</a>
           </li>
         </ul>
 
-        <div class="col-md-8 well" ng-show="tab == 1">
+        <div class="col-md-8 well" ng-show="Tab_C.isActiveTab(1)">
           Samsung is a South Korean multinational conglomerate headquartered in Samsung Town, Seoul. It comprises numerous affiliated
           businesses, most of them united under the Samsung brand, and is the largest South Korean chaebol.
         </div>
-        <div class="col-md-8 well" ng-show="tab == 2">
+        <div class="col-md-8 well" ng-show="Tab_C.isActiveTab(2)">
           Samsung Galaxy On Nxt Gold, 32 Gb | Samsung Tizen Z3 Black | 8 Gb Samsung Galaxy On8 Gold | 16 Gb Samsung Galaxy J2 Gold,
           8 Gb
         </div>
-        <div class="col-md-8 well" ng-show="tab == 3">
+        <div class="col-md-8 well" ng-show="Tab_C.isActiveTab(3)">
           Its screen and camera are still very good and have en edge over some of the pricier mid-range alternatives, like the Samsung
           Galaxy A5. And, of course, unlike the Galaxy S6, the S5 is water resistant and has a microSD card slot. ...
         </div>
