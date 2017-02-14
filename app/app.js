@@ -29,4 +29,28 @@
 
 		this.products = gem;
 	})
+
+	app.controller("TabController", function () {
+
+		/**
+		 * `tab` property contains currently active tab.
+		 */
+		this.tab = 1;
+
+		/**
+		 * `setActiveTab` set the recently clicked tab as active tab.
+		 */
+		this.setActiveTab = function (clickedTab) {
+
+			this.tab = clickedTab;
+		}
+
+		/**
+		 * `isActiveTab` determine that recently clicked tab is active or not.
+		 */
+		this.isActiveTab = function (currentTab) {
+
+			return (this.tab === currentTab) ? true : false;
+		}
+	})
 })();
