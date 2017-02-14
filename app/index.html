@@ -15,23 +15,26 @@
 
     <div class="row">
 
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-10 col-md-offset-1">
 
         <table class="table table-hover">
 
           <thead>
             <tr>
-              <th> Products Name</th>
-              <th> Product Price</th>
-              <th> Product Images</th>
+              <th> Name</th>
+              <th> Price</th>
+              <th> Description</th>
+              <th> Images</th>
               <th> Add To Cart</th>
             </tr>
           </thead>
 
           <tbody>
             <tr ng-repeat="product in store.products">
-              <td>{{product.name}}</td>
-              <td>{{product.price}}</td>
+              <td>{{product.name | uppercase}}</td>
+              <td>{{product.price | currency:"INR ":2}}</td>
+              <!-- date:'shortDate', Alternatives are: 'longDate', 'mediumDate' -->
+              <td>{{product.description | limitTo:20 }}, Created At: {{ product.created_at | date:'shortDate'}}</td>
               <td><img ng-style="{width: '60px', height:'60px;'}" ng-src="{{product.imgSrc}}"></td>
               <td>
                 <!-- Alternative syntax:
