@@ -2,14 +2,56 @@
 <html ng-app="store">
 
 <head>
-  <script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
   <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="./app.js"></script>
   <p>{{"hello "+ "AngulaJS"}}</p>
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-8 col-md-offset-2">
+
+        <div ng-controller="StoreController as store">
+
+          <table class="table table-hover">
+
+            <thead>
+              <tr>
+                <th colspan="2"> Products in store</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <th>Product Name</th>
+                <td>{{store.product.name}}</td>
+              </tr>
+              <tr>
+                <th>Product price</th>
+                <td>{{store.product.price}}</td>
+              </tr>
+              <tr>
+                <th>Product Description</th>
+                <td>{{store.product.description}}</td>
+              </tr>
+              <tr>
+                <td colspan="2" class="text-align:center;" ng-show="store.product.canPurchase">
+                  <button class="btn btn-primary" ng-show="store.product.canPurchase">Purchase</button>
+                </td>
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
