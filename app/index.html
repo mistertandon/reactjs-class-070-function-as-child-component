@@ -5,11 +5,11 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-
-<body>
   <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="./app.js"></script>
+</head>
+
+<body ng-controller="StoreController as store">
 
   <div class="container">
 
@@ -17,36 +17,36 @@
 
       <div class="col-md-8 col-md-offset-2">
 
-        <div ng-controller="StoreController as store">
+        <table class="table table-hover">
 
-          <table class="table table-hover">
+          <thead>
+            <tr>
+              <th> Products Name</th>
+              <th> Product Price</th>
+              <th> Product Images</th>
+              <th> Add To Cart</th>
+            </tr>
+          </thead>
 
-            <thead>
-              <tr>
-                <th> Products Name</th>
-                <th> Product Price</th>
-                <th> Add To Cart</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr ng-repeat="product in store.products">
-                <td>{{product.name}}</td>
-                <td>{{product.price}}</td>
-                <td>
-                  <!-- Alternative syntax:
+          <tbody>
+            <tr ng-repeat="product in store.products">
+              <td>{{product.name}}</td>
+              <td>{{product.price}}</td>
+              <td><img ng-style="{width: '60px', height:'60px;'}" ng-src="{{product.imgSrc}}"></td>
+              <td>
+                <!-- Alternative syntax:
                   ng-hide="store.product.soldOut" -->
-                  <button class="btn btn-primary" ng-hide="product.soldOut">
+                <button class="btn btn-primary" ng-hide="product.soldOut">
                     Purchase
                   </button>
-                  <span class="badge" ng-show="product.soldOut">Not Available</span>
-                </td>
-              </tr>
+                <span class="badge" ng-show="product.soldOut">Not Available</span>
+              </td>
+            </tr>
 
-            </tbody>
+          </tbody>
 
-          </table>
-        </div>
+        </table>
+
       </div>
     </div>
   </div>
