@@ -10,7 +10,7 @@
 <body>
   <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="./app.js"></script>
-  <p>{{"hello "+ "AngulaJS"}}</p>
+
   <div class="container">
 
     <div class="row">
@@ -23,38 +23,26 @@
 
             <thead>
               <tr>
-                <th colspan="2"> Products in store</th>
+                <th> Products Name</th>
+                <th> Product Price</th>
+                <th> Add To Cart</th>
               </tr>
             </thead>
-            <!-- Alternative syntax:
-           ng-hide="store.product.soldOut"
-           -->
-            <tbody ng-show="!store.product.soldOut">
-              <tr>
-                <th>Product Name</th>
-                <td>{{store.product.name}}</td>
-              </tr>
-              <tr>
-                <th>Product price</th>
-                <td>{{store.product.price}}</td>
-              </tr>
-              <tr>
-                <th>Product Description</th>
-                <td>{{store.product.description}}</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="text-align:center;" ng-show="store.product.canPurchase">
-                  <button class="btn btn-primary">Purchase</button>
-                </td>
-              </tr>
-            </tbody>
 
-            <tbody ng-show="store.product.soldOut">
-              <tr>
-                <td colspan="2" class="text-align:center;">
-                  <button class="btn btn-primary">No Products Available</button>
+            <tbody>
+              <tr ng-repeat="product in store.products">
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td>
+                  <!-- Alternative syntax:
+                  ng-hide="store.product.soldOut" -->
+                  <button class="btn btn-primary" ng-hide="product.soldOut">
+                    Purchase
+                  </button>
+                  <span class="badge" ng-show="product.soldOut">Not Available</span>
                 </td>
               </tr>
+
             </tbody>
 
           </table>
