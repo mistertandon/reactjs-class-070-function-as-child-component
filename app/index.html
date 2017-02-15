@@ -1,108 +1,22 @@
 <!DOCTYPE html>
-<html ng-app="store">
+<html ng-app="storeFrontApp">
 
 <head>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="./bower_components/angular-resource/angular-resource.js"></script>
+  <script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script>
   <script type="text/javascript" src="./app.js"></script>
+  <script type="text/javascript" src="./home/home.js"></script>
+
 </head>
 
-<body ng-controller="StoreController as store" ng-init="tab=1">
+<body>
 
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          </button>
-        <a class="navbar-brand" href="#">Brand</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Link</a></li>
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-  </nav>
-
-  <div class="container">
-
-    <div class="row">
-
-      <div class="col-md-10 col-md-offset-1" ng-controller="TabController as Tab_C">
-
-        <ul class="nav nav-tabs">
-          <li role="presentation" ng-click="Tab_C.setActiveTab(1)" ng-class="{active:Tab_C.isActiveTab(1)}">
-            <a href="#">About Samsung</a>
-          </li>
-          <li role="presentation" ng-click="Tab_C.setActiveTab(2)" ng-class="{active:Tab_C.isActiveTab(2)}">
-            <a href="#">Featured Products</a>
-          </li>
-          <li role="presentation" ng-click="Tab_C.setActiveTab(3)" ng-class="{active:Tab_C.isActiveTab(3)}">
-            <a href="#">Review</a>
-          </li>
-        </ul>
-
-        <div class="col-md-8 well" ng-show="Tab_C.isActiveTab(1)">
-          Samsung is a South Korean multinational conglomerate headquartered in Samsung Town, Seoul. It comprises numerous affiliated
-          businesses, most of them united under the Samsung brand, and is the largest South Korean chaebol.
-        </div>
-        <div class="col-md-8 well" ng-show="Tab_C.isActiveTab(2)">
-          Samsung Galaxy On Nxt Gold, 32 Gb | Samsung Tizen Z3 Black | 8 Gb Samsung Galaxy On8 Gold | 16 Gb Samsung Galaxy J2 Gold,
-          8 Gb
-        </div>
-        <div class="col-md-8 well" ng-show="Tab_C.isActiveTab(3)">
-          Its screen and camera are still very good and have en edge over some of the pricier mid-range alternatives, like the Samsung
-          Galaxy A5. And, of course, unlike the Galaxy S6, the S5 is water resistant and has a microSD card slot. ...
-        </div>
-
-        <table class="table table-hover">
-
-          <thead>
-            <tr>
-              <th> Name</th>
-              <th> Price</th>
-              <th> Description</th>
-              <th> Images</th>
-              <th> Add To Cart</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr ng-repeat="product in store.products">
-              <td>{{product.name | uppercase}}</td>
-              <td>{{product.price | currency:"INR ":2}}</td>
-              <!-- date:'shortDate', Alternatives are: 'longDate', 'mediumDate' -->
-              <td>{{product.description | limitTo:20 }}, Created At: {{ product.created_at | date:'shortDate'}}</td>
-              <td><img ng-style="{width: '60px', height:'60px;'}" ng-src="{{product.imgSrc}}"></td>
-              <td>
-                <!-- Alternative syntax:
-                  ng-hide="store.product.soldOut" -->
-                <button class="btn btn-primary" ng-hide="product.soldOut">
-                    Purchase
-                  </button>
-                <span class="badge" ng-show="product.soldOut">Not Available</span>
-              </td>
-            </tr>
-
-          </tbody>
-
-        </table>
-
-      </div>
-    </div>
-  </div>
+  <a ng-href="/home">Click here</a>
+    <div ng-view></div>
 </body>
 
 </html>
