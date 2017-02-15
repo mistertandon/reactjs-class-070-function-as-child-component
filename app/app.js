@@ -1,18 +1,19 @@
 (function () {
 
 	angular
-		.module("storeFrontApp",
+		.module('storeFrontApp',
 		[
 			'ngResource',
 			'ngRoute',
-			'storeFrontApp.home'
+			'storeFrontApp.home',
+			'storeFrontApp.login'
 		])
 		.config([
 			"$locationProvider",
 			"$routeProvider",
 			function ($locationProvider, $routeProvider) {
 
-				$locationProvider.hashPrefix("!");
+				$locationProvider.hashPrefix('!');
 				$routeProvider.otherwise({
 					redirectTo: '/home'
 				});
