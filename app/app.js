@@ -6,7 +6,8 @@
 			'ngResource',
 			'ngRoute',
 			'storeFrontApp.home',
-			'storeFrontApp.login'
+			'storeFrontApp.login',
+			'storeFrontApp.user'
 		])
 		.config([
 			"$locationProvider",
