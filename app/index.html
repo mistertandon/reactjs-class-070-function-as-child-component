@@ -5,19 +5,28 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
-  <script type="text/javascript" src="./bower_components/angular-resource/angular-resource.js"></script>
-  <script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script>
-  <script type="text/javascript" src="./app.js"></script>
-  <script type="text/javascript" src="./home/home.js"></script>
-  <script type="text/javascript" src="./login/login.js"></script>
+  <script type="text/javascript" src="bower_components/lodash/dist/lodash.core.js"></script>
+  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
+  <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="home/home.js"></script>
+  <script type="text/javascript" src="login/login.js"></script>
+  <script type="text/javascript" src="user/user.js"></script>
 
 </head>
 
 <body>
 
-  <a ng-href="#!/home">Click here</a>
-  <div ng-view></div>
+  <div class="container">
+
+    <a ng-href="#!/home">Home</a>
+    <a ng-href="#!/login">Login</a>
+    <a ng-href="#!/user">user</a>
+    <div ng-view></div>
+
+  </div>
+
 </body>
 
 </html>
