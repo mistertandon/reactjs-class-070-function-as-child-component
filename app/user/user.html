@@ -18,33 +18,39 @@
 						}">
 
 						<label for="name" class="control-label">Name: </label>
-						<input name="name" type="text" id="name" class="form-control" required ng-model="userForm.name" ng-minlength="userForm.name_minlength"
-							ng-pattern="userForm.name_RegexPattern" ng-trim="true" ng-blur="validateUserForm()">
-
+						<input name="name" type="text" id="name" class="form-control" ng-model="userForm.name" ng-required="userForm.name_isRequired"
+							ng-minlength="userForm.name_minlength" ng-pattern="userForm.name_RegexPattern" ng-trim="true" ng-blur="validateUserForm()">
 
 							<div class="alert alert-danger" ng-show="!userAddForm.name.$valid && userAddForm.name.$dirty && manuallyErrorsSet">
 								{{validationFields.name}}
 							</div>
 			</div>
 
-			<div class="form-group">
+			<div class="form-group" ng-class="{
+						'has-error': userAddForm.email.$invalid && userAddForm.email.$dirty,
+						'has-success': userAddForm.email.$valid && userAddForm.email.$dirty 
+						}">
 				<label for="email">E-mail Address: </label>
-				<input name="email" type="email" id="email" class="form-control" ng-model="userForm.email" ng-required="required">
-			</div>
-
-			<div class="form-group">
-				<label for="password">Password: </label>
-				<input name="password" type="password" id="password" class="form-control" ng-model="userForm.password">
-			</div>
-
-			<div class="form-group">
-				<button type="submit" name="add_user_btn" class="btn btn-sm btn-primary btn-block" id="add-user-btn">Add User</button>
-			</div>
-
-			</form>
-			<!-- `form` tag end here -->
+				<input name="email" type="email" id="email" class="form-control" ng-model="userForm.email" ng-required="email_isRequired"
+					ng-blur="validateUserForm()">
+					<div class="alert alert-danger" ng-show="!userAddForm.email.$valid && userAddForm.email.$dirty && manuallyErrorsSet">
+						{{validationFields.email}}
+					</div>
 		</div>
+
+		<div class="form-group">
+			<label for="password">Password: </label>
+			<input name="password" type="password" id="password" class="form-control" ng-model="userForm.password">
+		</div>
+
+		<div class="form-group">
+			<button name="add_user_btn" type="submit" id="add-user-btn" class="btn btn-sm btn-primary btn-block" ng-disabled="userAddForm.valid && userAddForm.dirty">Add User</button>
+		</div>
+
+		</form>
+		<!-- `form` tag end here -->
 	</div>
+</div>
 
 </div>
 </div>

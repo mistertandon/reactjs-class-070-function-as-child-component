@@ -41,7 +41,8 @@ angular
 					'minlength': 'Username must be 5 characters long.'
 				},
 				'email': {
-					'required': 'Enter E-mail Address.'
+					'required': 'Enter E-mail Address.',
+					'email': 'Enter valid E-mail Address'
 				}
 			};
 
@@ -50,9 +51,11 @@ angular
 			 */
 			$scope.userForm = {
 				'name': '',
+				'name_isRequired': true,
 				'name_RegexPattern': /^[0-9A-Za-z]+\s?$/,
 				'name_minlength': 5,
-				'email': ''
+				'email': '',
+				'email_isRequired': true,
 			};
 
 			/**
@@ -60,7 +63,7 @@ angular
 			 * occur and accumulate all validation messages.
 			 */
 			$scope.validateUserForm = function () {
-
+console.log($scope.userAddForm);
 				for (let validationField in $scope.validationFieldsMessages) {
 
 					let fieldErrorObj;
@@ -77,17 +80,26 @@ angular
 						for (let validationType in fieldErrorObj) {
 
 							/**
-							 * Here we will iterate over specific field error type object and populate `$scope.validationFields`
-							 * with corresponding error messages.
+							 * Here we will examine that in `fieldErrorObj` each key has `TRUE` value OR `FALSE`
+							 * value.
 							 */
-							$scope.validationFields[validationField] += (count++ === 0) ?
-								$scope.validationFieldsMessages[validationField][validationType] :
-								" | " + $scope.validationFieldsMessages[validationField][validationType];
+							if (fieldErrorObj[validationType]) {
+
+								/**
+								 * Here we will iterate over specific field error type object and populate `$scope.validationFields`
+								 * with corresponding error messages.
+								 */
+								$scope.validationFields[validationField] += (count++ === 0) ?
+									$scope.validationFieldsMessages[validationField][validationType] :
+									" | " + $scope.validationFieldsMessages[validationField][validationType];
+							}
+
 						}
 
 						count = null;
 					}
 				}
+				console.log($scope.validationFields);
 				$scope.manuallyErrorsSet = true;
 			}
 		}
