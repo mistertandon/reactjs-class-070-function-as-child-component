@@ -1,12 +1,13 @@
 angular
 	.module('storeFrontApp.directive_transclude', [
-		'ngRoute'
+		'ui.router'
 	])
 	.config([
-		'$routeProvider', function ($routeProvider) {
+		'$stateProvider', function ($stateProvider) {
 
-			$routeProvider
-				.when('/directivetransclude', {
+			$stateProvider
+				.state('directiveTranscludeFeature', {
+					url: '/directive-transclude-feature',
 					templateUrl: "directive/directive_transclude.html",
 					controller: "DirectiveTranscludeController"
 				});

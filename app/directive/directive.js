@@ -2,20 +2,20 @@ angular
 	.module(
 	'storeFrontApp.myCustomerDirective',
 	[
-		'ngRoute'
+		'ui.router'
 	]
 	)
 	.config(
 	[
-		"$routeProvider",
-		function ($routeProvider) {
+		'$stateProvider',
+		function ($stateProvider) {
 
-			$routeProvider.when(
-				'/mycustomerd', {
+			$stateProvider
+				.state('myCustomerDirective', {
+					url: '/my-customer-directive',
 					templateUrl: "directive/directive_my_customer.html",
 					controller: "MyCustomerController"
-				}
-			);
+				});
 
 		}])
 	.controller('MyCustomerController',
