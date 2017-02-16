@@ -8,7 +8,8 @@
 			'storeFrontApp.home',
 			'storeFrontApp.login',
 			'storeFrontApp.user',
-			'storeFrontApp.myCustomerDirective'
+			'storeFrontApp.myCustomerDirective',
+			'storeFrontApp.isolate_scope_d'
 		])
 		.config([
 			"$locationProvider",

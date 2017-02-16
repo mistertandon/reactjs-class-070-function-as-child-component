@@ -35,6 +35,7 @@ angular
 	.directive('myCustomer', function () {
 
 		return {
-			template: "The lucky customer of JFM quarter is {{customer.name}}, currently living in {{customer.address}}"
+			restrict: 'E',
+			templateUrl: "directive/directive_my_customer_template.html"
 		};
 	});
