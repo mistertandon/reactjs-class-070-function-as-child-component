@@ -37,7 +37,8 @@ angular
 
 			restrict: 'E',
 			scope: {
-				"customerInfo": "=customerinfo"
+				"customerName": "=customername",
+				"customerAddress": "="
 			},
 			templateUrl: "directive/isolate_scope_template.html"
 		};
