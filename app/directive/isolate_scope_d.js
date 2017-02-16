@@ -22,11 +22,23 @@ angular
 		'$scope',
 		function ($scope) {
 
+			/**
+			 * `$scope.customer` contains customer name object.
+			 */
+			$scope.customer = {
+				'name': 'parvesh kumar tandon',
+				'address': '1300 Robert B. Cullum Boulevard, Dallas, TX 75210.'
+			};
 		}
 	])
 	.directive('isolateScopeDirective', function () {
 
 		return {
-			template: "hiiiiiiiiiiii"
+
+			restrict: 'E',
+			scope: {
+				"customerInfo": "=customerinfo"
+			},
+			templateUrl: "directive/isolate_scope_template.html"
 		};
 	});
