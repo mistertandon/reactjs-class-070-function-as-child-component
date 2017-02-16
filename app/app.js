@@ -10,7 +10,8 @@
 			'storeFrontApp.user',
 			'storeFrontApp.myCustomerDirective',
 			'storeFrontApp.isolate_scope_d',
-			'storeFrontApp.directive_link_fn'
+			'storeFrontApp.directive_link_fn',
+			'storeFrontApp.directive_transclude'
 		])
 		.config([
 			"$locationProvider",
