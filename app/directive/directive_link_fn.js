@@ -23,13 +23,60 @@ angular
 		'$scope',
 		function ($scope) {
 
+			$scope.dateInfo = {
+				'format': 'dd MMM, yyyy hh:mm:ss'
+			};
 		}
 	])
 	.directive(
-	'directiveLinkFn',
-	function () {
+	'myCurrentTime',
+	[
+		'$interval',
+		'dateFilter',
+		function ($interval, dateFilter) {
 
-		return {
-			template: "yahooo"
-		};
-	});
+			function link(scope, iElement, iAttr) {
+
+				var timeIntervalFnRef, formatVal;
+
+				function updateCurrentTime() {
+
+					iElement.text(dateFilter(new Date(), formatVal));
+				}
+
+				/**
+				 * `scope.$watch` track the changes for `iAttr.myCurrentTime`
+				 */
+				scope.$watch(iAttr.myCurrentTime, function (value) {
+
+					formatVal = value;
+					updateCurrentTime();
+				});
+
+				/**
+				 * `timeIntervalFnRef` contain the reference of function associated with
+				 * `$interval`
+				 */
+				timeIntervalFnRef = $interval(function () {
+
+					updateCurrentTime();
+				}, 1000);
+
+				/**
+				 * When associated element get destroyed, function associated with $interval
+				 * must be cancel to avoid memory leak;
+				 */
+				iElement.on("$destroy", function () {
+
+					$interval.cancel(timeIntervalFnRef);
+
+				})
+			}
+
+			return {
+				restrict: 'A',
+				link: link
+			};
+		}
+	]
+	);

@@ -2,7 +2,14 @@
 	<div class="col-md-6 col-md-offset-3">
 		<div class="well">
 			<h3>Example of Directive Link function</h3>
-			<directive-link-fn></directive-link-fn>
+
+			<div class="form-gorup">
+				<label for="date_format">Date Format :</label>
+				<input name="date_format" type="text" id="date_format" class="form-control" ng-model="dateInfo.format" />
+			</div>
+
+			Current Time : <span class="info" my-current-time="dateInfo.format"></span>
+
 		</div>
 	</div>
 </div>
