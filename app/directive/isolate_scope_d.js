@@ -2,16 +2,16 @@ angular
 	.module(
 	'storeFrontApp.isolate_scope_d',
 	[
-		'ngRoute'
+		'ui.router'
 	])
 	.config(
 	[
-		'$routeProvider',
-		function ($routeProvider) {
+		'$stateProvider',
+		function ($stateProvider) {
 
-			$routeProvider
-				.when(
-				'/isolatedscoped', {
+			$stateProvider
+				.state('directiveIsolatedScopeFeature', {
+					url: '/directive-isolated-scope-feature',
 					templateUrl: "directive/isolate_scope.html",
 					controller: "IsolateScopeController"
 				});

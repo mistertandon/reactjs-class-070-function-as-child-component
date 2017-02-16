@@ -2,15 +2,15 @@ angular
 	.module(
 	'storeFrontApp.directive_link_fn',
 	[
-		'ngRoute'
+		'ui.router'
 	])
 	.config([
-		'$routeProvider',
-		function ($routeProvider) {
+		'$stateProvider',
+		function ($stateProvider) {
 
-			$routeProvider
-				.when(
-				'/directivelinkfn', {
+			$stateProvider
+				.state('directiveLinkFunction', {
+					url: '/directive-link-function',
 					templateUrl: "directive/directive_link_fn.html",
 					controller: "DirectiveLinkFnController"
 				}

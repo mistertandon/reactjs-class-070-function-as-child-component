@@ -8,7 +8,7 @@
   <script type="text/javascript" src="bower_components/lodash/dist/lodash.core.js"></script>
   <script type="text/javascript" src="bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
-  <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-router/angular-ui-router.js"></script>
   <script type="text/javascript" src="app.js"></script>
   <script type="text/javascript" src="home/home.js"></script>
   <script type="text/javascript" src="login/login.js"></script>
@@ -24,18 +24,46 @@
 
   <div class="container">
 
-    <a ng-href="#!/home">Home</a>
-    <a ng-href="#!/login">Login</a>
+
+    <!--<a ng-href="#!/login">Login</a>
     <a ng-href="#!/user">user</a>
+    
+    
     <a ng-href="#!/mycustomerd">MyCustomer Directive</a>
     <a ng-href="#!/isolatedscoped">Isolated Scope Directive</a>
     <a ng-href="#!/directivelinkfn">Directive Link Fn</a>
-    <a ng-href="#!/directivetransclude">Directive Transclude</a>
+    <a ng-href="#!/directivetransclude">Directive Transclude</a>-->
+    <div class="row">
+      <div class="col-md-12 well">
+        Angularjs Beginner application
+      </div>
+    </div>
+    <div class="row">
 
-    <div ng-view></div>
+      <div class="col-sm-3">
+        <ul class="nav nav-pills nav-stacked">
+          <!--
+            Alternative way to defie route into anchor tag.
+            <a ng-href="#/">Home</a>
+          -->
+          <li role='presentation'><a ui-sref="homePage()">Home</a></li>
+          <li role='presentation'><a ui-sref='userAdd()'>Add User</a></li>
+          <li role='presentation'><a ui-sref='myCustomerDirective()'>My-Customer Directive</a></li>
+          <li role='presentation'><a ui-sref='directiveIsolatedScopeFeature()'>Isolated Scope Directive</a></li>
+          <li role='presentation'><a ui-sref='directiveLinkFunction()'>Directive Link Fn</a></li>
+          <li role='presentation'><a ui-sref='directiveTranscludeFeature()'>Directive Transclude</a></li>
+        </ul>
+      </div>
 
+      <div class="col-sm-9">
+        <div ui-view>
+        </div>
+      </div>
+
+    </div>
+    <!-- `row` div end here -->
   </div>
-
+  <!-- `container` div end here -->
 </body>
 
 </html>

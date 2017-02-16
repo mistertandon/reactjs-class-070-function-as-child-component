@@ -1,15 +1,15 @@
 angular
 	.module('storeFrontApp.user',
 	[
-		'ngRoute'
+		'ui.router'
 	])
 	.config([
-		"$routeProvider",
-		function ($routeProvider) {
+		'$stateProvider',
+		function ($stateProvider) {
 
-			$routeProvider
-				.when(
-				'/user', {
+			$stateProvider
+				.state('userAdd', {
+					url: '/user-add',
 					templateUrl: 'user/user.html',
 					controller: 'UserController'
 				});
@@ -63,7 +63,7 @@ angular
 			 * occur and accumulate all validation messages.
 			 */
 			$scope.validateUserForm = function () {
-console.log($scope.userAddForm);
+				console.log($scope.userAddForm);
 				for (let validationField in $scope.validationFieldsMessages) {
 
 					let fieldErrorObj;

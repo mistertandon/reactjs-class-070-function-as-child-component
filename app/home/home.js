@@ -1,19 +1,20 @@
 angular
-	.module("storeFrontApp.home",
+	.module('storeFrontApp.home',
 	[
-		"ngRoute"
+		'ui.router'
 	])
-	.config(["$routeProvider", function ($routeProvider) {
+	.config(['$stateProvider', function ($stateProvider) {
 
-		$routeProvider
-			.when("/home", {
-				templateUrl: "home/home.html",
-				controller: "HomeController"
+		$stateProvider
+			.state('homePage', {
+				url: '/',
+				templateUrl: 'home/home.html',
+				controller: 'HomeController'
 			}
 			);
 
 	}])
-	.controller("HomeController", [
+	.controller('HomeController', [
 		function () {
 
 		}
