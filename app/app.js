@@ -37,7 +37,8 @@
 			'storeFrontApp.myCustomerDirective',
 			'storeFrontApp.isolate_scope_d',
 			'storeFrontApp.directive_link_fn',
-			'storeFrontApp.directive_transclude'
+			'storeFrontApp.directive_transclude',
+			'storeFrontApp.router.query_params.module'
 		])
 		.config([
 			'$stateProvider',

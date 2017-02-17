@@ -1,0 +1,93 @@
+<div class="col-sm-10">
+	<div class="col-sm-4">
+
+		<ul class="nav nav-pills nav-stacked">
+
+			<li role='presentation'>
+
+
+				<!--
+              Alternative way to define routing using `state` url.
+              <a ng-href='#/router-query-params/10/20/30'>Router Query params</a>
+              -->
+				<a ui-sref='routerQueryParams({param1:10, param2:20, param3:30})'>Router Query params</a>
+			</li>
+			<li role='presentation'>
+				<!--
+                Note: state `routerOneQueryParams` requires two query params i.e param1 and param2 (Optional param)
+                If we don't want to specify query params value then ui.router try to merge existing state with new state
+                which is not desirable.
+                Solution: 
+                A. Explicitly pass null value corresponding to each query params.
+                B. ui-sref-opts = "{inherit:false}"
+
+                Alternative ancchor tag
+                <a ui-sref-opts="{inherit:false}" ui-sref='routerOneQueryParams()'>Router one query params</a>
+                
+            -->
+				<a ui-sref='routerOneQueryParams({param1:null, param2:null})'>Router one query params</a>
+			</li>
+
+		</ul>
+
+	</div>
+	<div class="col-sm-4">
+		<ul class="nav nav-pills nav-stacked">
+			<!--
+            Alternative way to defie route into anchor tag.
+            <a ng-href="#/">Home</a>
+          -->
+			<li role='presentation'>
+				<a ui-sref-opts="{inherit:false}" ui-sref='routerStateParams({param1:null, param2:30})'>
+              Router state params
+            </a>
+			</li>
+			<li role='presentation'>
+				<!--
+              Alternative Solution
+              <a ui-sref-opts="{inherit:false}" ui-sref='routerStateParamsWithUrl({param1:null, param2:30})'>
+                Router state params along url option.
+              </a>                            
+            -->
+				<a ng-href='#/router-state-params-with-url//'>
+              Router state params along url option
+            </a>
+			</li>
+		</ul>
+	</div>
+	<div class="col-sm-4">
+		<ul class="nav nav-pills nav-stacked">
+			<li role='presentation'>
+				<!--
+              Alternative Solution
+              <a ui-sref-opts="{inherit:false}" ui-sref='routerStateParamsSquashWithUrl({param1:null, param2:30})'>
+                Router state params along state url option.
+              </a>                            
+            -->
+				<a ng-href='#/router-state-params-squash-with-url'>
+              Router state params along url option squash
+            </a>
+			</li>
+			<li role='presentation'>
+				<!--
+              Alternative Solution
+              <a ui-sref-opts="{inherit:false}" ui-sref='routerStateParamsSquashWithUrl({param1:null, param2:30})'>
+                Router state params along state url option.
+              </a>                            
+            -->
+				<a ng-href='#/router-state-params-squash-options-with-url/@/10/~'>
+              Router state params along url option squash (-,~)
+            </a>
+			</li>
+
+		</ul>
+	</div>
+</div>
+<div class="col-sm-10">
+	<ul class="list-group">
+		<li class="list-group-item">Title : {{title}}</li>
+		<li class="list-group-item">First Param : {{firstParam}}</li>
+		<li class="list-group-item">Second Param : {{secondParam}}</li>
+		<li class="list-group-item">Third Param : {{thirdParam}}</li>
+	</ul>
+</div>

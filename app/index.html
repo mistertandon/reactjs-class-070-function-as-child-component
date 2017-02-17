@@ -17,6 +17,7 @@
   <script type="text/javascript" src="directive/isolate_scope_d.js"></script>
   <script type="text/javascript" src="directive/directive_link_fn.js"></script>
   <script type="text/javascript" src="directive/directive_transclude.js"></script>
+  <script type="text/javascript" src="routes/router.query-params.module.js"></script>
 
 </head>
 
@@ -46,12 +47,20 @@
             Alternative way to defie route into anchor tag.
             <a ng-href="#/">Home</a>
           -->
-          <li role='presentation'><a ui-sref="homePage()">Home</a></li>
-          <li role='presentation'><a ui-sref='userAdd()'>Add User</a></li>
-          <li role='presentation'><a ui-sref='myCustomerDirective()'>My-Customer Directive</a></li>
-          <li role='presentation'><a ui-sref='directiveIsolatedScopeFeature()'>Isolated Scope Directive</a></li>
-          <li role='presentation'><a ui-sref='directiveLinkFunction()'>Directive Link Fn</a></li>
-          <li role='presentation'><a ui-sref='directiveTranscludeFeature()'>Directive Transclude</a></li>
+          <li role='presentation'><a ui-sref="homePage(null)">Home</a></li>
+          <li role='presentation'><a ui-sref='userAdd(null)'>Add User</a></li>
+          <li role='presentation'><a ui-sref='myCustomerDirective(null)'>My-Customer Directive</a></li>
+          <li role='presentation'><a ui-sref='directiveIsolatedScopeFeature(null)'>Isolated Scope Directive</a></li>
+          <li role='presentation'><a ui-sref='directiveLinkFunction(null)'>Directive Link Fn</a></li>
+          <li role='presentation'><a ui-sref='directiveTranscludeFeature(null)'>Directive Transclude</a></li>
+          <li role='presentation'>
+            <!--
+              Alternative way to define routing using `state` url.
+              <a ng-href='#/router-query-params/10/20/30'>Router Query params</a>
+              -->
+            <a ui-sref='routerQueryParams({param1:10, param2:20, param3:30})'>Router Query params</a>
+          </li>
+
         </ul>
       </div>
 
