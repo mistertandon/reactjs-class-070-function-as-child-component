@@ -11,7 +11,8 @@
 			'storeFrontApp.directive_link_fn',
 			'storeFrontApp.directive_transclude',
 			'storeFrontApp.router.query_params.module',
-			'storeFrontApp.router.calc.module'
+			'storeFrontApp.router.calc.module',
+			'calculator.module'
 		])
 		.config([
 			'$stateProvider',

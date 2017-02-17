@@ -1,0 +1,29 @@
+<div class="col-sm-8">
+
+	<div class="panel panel-default">
+		<div class="panel panel-heading">
+			Add Operation
+		</div>
+		<div class="panel panel-body">
+
+			<div class="form-group">
+				<label for="augend">Augend :</label>
+				<input type="text" name="augend" id="augend" ng-model="addObj.augend">
+			</div>
+
+			<div class="form-group">
+				<label for="addend">Addend :</label>
+				<input type="text" name="addend" id="addend" ng-model="addObj.addend">
+			</div>
+			<hr>
+			<div class="col-sm-4">
+				<button class="btn-btn-sm btn-primary btn-block" ng-click="addNumbers()">Add</button>
+			</div>
+
+		</div>
+	</div>
+	<div class="col-sm-12">
+		Sum of two numbers is: <span class="badge">{{sum}}</span>
+	</div>
+
+</div>
