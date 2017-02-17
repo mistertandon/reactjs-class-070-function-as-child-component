@@ -1,1 +1,17 @@
-{{title}}
+<div class="col-sm-8">
+
+	<div class="form-group">
+		<label for="augend">Augend: </label>
+		<input name="augend" type="text" id="augend" class="form-control" ng-model="calc.augend">
+	</div>
+
+	<div class="form-group">
+		<label for="addend">Addend:</label>
+		<input name="addend" type="text" id="addend" class="form-control" ng-model="calc.addend">
+	</div>
+
+	<div class="col-sm-4">
+		<button class="btn btn-sm btn-primary btn-block" ng-click="sum()">Add</button>
+	</div>
+
+</div>
