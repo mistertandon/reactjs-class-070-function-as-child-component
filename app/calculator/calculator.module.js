@@ -49,7 +49,11 @@ angular
 			 */
 			$scope.subtractNumbers = function () {
 
-				$scope.difference = CalculatorService._subtract($scope.subtractObj.minuend, $scope.subtractObj.subtrahend);
+				$scope.difference = CalculatorService._subtract($scope.subtractObj.minuend, $scope.subtractObj.subtrahend,
+					function (difference) {
+
+						$scope.difference = difference;
+					});
 			}
 		}
 	])
@@ -57,7 +61,8 @@ angular
 	'CalculatorService',
 	[
 		'$log',
-		function ($log) {
+		'$http',
+		function ($log, $http) {
 
 			$log.log('initializing CalculatorService');
 
@@ -65,14 +70,22 @@ angular
 			 * `this._subtract` function is used to calculate difference of 
 			 * `minuend` and `subtrahend`.
 			 */
-			this._subtract = function (minuend, subtrahend) {
+			this._subtract = function (minuend, subtrahend, callBackFn) {
 
-				let difference;
+				$http({
+					url: 'http://localhost:3002/calculator/subtract/' + minuend + '/' + subtrahend,
+					method: 'GET'
+				})
+					.then(
+					function (resultData) {
 
-				difference = parseInt(minuend, 10) - parseInt(subtrahend, 10);
+						callBackFn(resultData.data.difference);
+					},
+					function (err) {
 
-				return difference;
-
+						$log.log('ERROR OCCURED: Something went wrong, try after sometime.');
+					}
+					);
 			}
 		}
 	]);
