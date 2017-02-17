@@ -119,6 +119,4 @@ function RouterQueryParamsControllerFn($scope, $stateParams) {
 	$scope.secondParam = $stateParams.param2 || 'No Query param passed';
 	$scope.thirdParam = $stateParams.param3 || 'No Query param passed';
 
-
-
 }
