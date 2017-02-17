@@ -5,7 +5,7 @@ angular
 		'calculator.factory'
 	])
 	.controller(
-	'CalculatorController',
+	'CalculatorAddController',
 	[
 		'$scope',
 		'CalculatorFactory',

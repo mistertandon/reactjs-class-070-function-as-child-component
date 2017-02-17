@@ -1,0 +1,31 @@
+<div class="col-sm-8">
+
+	<div class="panel panel-default">
+		<div class="panel panel-heading">
+			Edit Operation
+		</div>
+		<div class="panel panel-body">
+
+			<div class="form-group">
+				<label for="minuend">Minuend :</label>
+				<input type="text" name="minuend" id="minuend" ng-model="subtractObj.minuend">
+			</div>
+
+			<div class="form-group">
+				<label for="subtrahend">Subtrahend :</label>
+				<input type="text" name="subtrahend" id="subtrahend" ng-model="subtractObj.subtrahend">
+			</div>
+			<hr>
+			<div class="col-sm-4">
+				<button class="btn-btn-sm btn-primary btn-block" ng-click="subtractNumbers()">
+					Subtract
+				</button>
+			</div>
+
+		</div>
+	</div>
+	<div class="col-sm-12">
+		Difference of two numbers is: <span class="badge">{{difference}}</span>
+	</div>
+
+</div>
