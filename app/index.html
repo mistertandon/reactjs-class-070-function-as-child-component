@@ -18,6 +18,7 @@
   <script type="text/javascript" src="directive/directive_link_fn.js"></script>
   <script type="text/javascript" src="directive/directive_transclude.js"></script>
   <script type="text/javascript" src="routes/router.query-params.module.js"></script>
+  <script type="text/javascript" src="routes/router.calc.module.js"></script>
 
 </head>
 
@@ -25,15 +26,6 @@
 
   <div class="container">
 
-
-    <!--<a ng-href="#!/login">Login</a>
-    <a ng-href="#!/user">user</a>
-    
-    
-    <a ng-href="#!/mycustomerd">MyCustomer Directive</a>
-    <a ng-href="#!/isolatedscoped">Isolated Scope Directive</a>
-    <a ng-href="#!/directivelinkfn">Directive Link Fn</a>
-    <a ng-href="#!/directivetransclude">Directive Transclude</a>-->
     <div class="row">
       <div class="col-md-12 well">
         Angularjs Beginner application
@@ -60,6 +52,7 @@
               -->
             <a ui-sref='routerQueryParams({param1:10, param2:20, param3:30})'>Router Query params</a>
           </li>
+          <li role='presentation'><a ui-sref='routeCalculator(null)'>Route-Calculator</a></li>
 
         </ul>
       </div>
