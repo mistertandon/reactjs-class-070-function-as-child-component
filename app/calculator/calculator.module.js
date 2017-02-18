@@ -3,7 +3,8 @@
 angular
 	.module('calculator.module', [
 		'ui.router',
-		'calculator.add.controller'
+		'calculator.add.controller',
+		'calculator.service'
 	])
 	.config([
 		'$stateProvider',
@@ -57,35 +58,4 @@ angular
 			}
 		}
 	])
-	.service(
-	'CalculatorService',
-	[
-		'$log',
-		'$http',
-		function ($log, $http) {
-
-			$log.log('initializing CalculatorService');
-
-			/**
-			 * `this._subtract` function is used to calculate difference of 
-			 * `minuend` and `subtrahend`.
-			 */
-			this._subtract = function (minuend, subtrahend, callBackFn) {
-
-				$http({
-					url: 'http://localhost:3002/calculator/subtract/' + minuend + '/' + subtrahend,
-					method: 'GET'
-				})
-					.then(
-					function (resultData) {
-
-						callBackFn(resultData.data.difference);
-					},
-					function (err) {
-
-						$log.log('ERROR OCCURED: Something went wrong, try after sometime.');
-					}
-					);
-			}
-		}
-	]);
+	;
