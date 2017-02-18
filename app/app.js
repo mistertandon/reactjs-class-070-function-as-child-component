@@ -12,7 +12,8 @@
 			'storeFrontApp.directive_transclude',
 			'storeFrontApp.router.query_params.module',
 			'storeFrontApp.router.calc.module',
-			'calculator.module'
+			'calculator.module',
+			'movie.module'
 		])
 		.config([
 			'$stateProvider',

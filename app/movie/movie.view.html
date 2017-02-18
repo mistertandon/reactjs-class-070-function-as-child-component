@@ -1,0 +1,50 @@
+<div class="col-sm-12">
+	<button class="btn btn-sm btn-primary" ng-click="getMovieDetail()">Get Movie Detail</button>
+</div>
+
+<div class="col-sm-12 well" ng-show="movieDetail">
+	<h3>
+		Movie Detail
+	</h3>
+</div>
+
+<div class="form-group">
+	<label for="actor_filter">Filter Actor :</label>
+	<input name="actor_filter" type="text" id="actor_filter" class="form-control" ng-model="actorFilter">
+</div>
+<table class="table table-hover table-stripped" ng-show="movieDetail">
+	<tr>
+		<th>Name :</th>
+		<td>{{movieDetail.data.title | uppercase}}</td>
+	</tr>
+	<tr>
+		<th>Released Date :</th>
+		<td>{{movieDetail.data.released | date:'medium'}}</td>
+	</tr>
+	<tr>
+		<th>Runtime :</th>
+		<td>{{movieDetail.data.runtime}}</td>
+	</tr>
+	<tr>
+		<th>Actors :</th>
+		<td>
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="actor in movieDetail.data.actors | filter: actorFilter">
+					{{actor}}
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th>Revenue :</th>
+		<td>{{movieRevenue}}</td>
+	</tr>
+	<tr>
+		<th>Tomat Rating :</th>
+		<td>{{movieDetail.data.tomato.rating}}</td>
+	</tr>
+	<tr>
+		<th>Overview :</th>
+		<td>{{movieDetail.data.plot | limitTo:50}}</td>
+	</tr>
+</table>
