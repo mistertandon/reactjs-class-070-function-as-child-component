@@ -124,8 +124,10 @@ function CalculatorSumControllerFn($scope, $stateParams, $state, CalculatorFacto
 	/**
 	 * `$scope.sum`, contain sum of augend and addend, then multiply by 
 	 * `routeCalculatorSum` state `data` property i.e. multiply with value 6.
+	 * 	
+	 * 	Alternative way to calculate sum locally.
+	 * 	$scope.sum = ($scope.augend + $scope.addend) * $scope.multiplier;
 	 */
-	//$scope.sum = ($scope.augend + $scope.addend) * $scope.multiplier;
 	CalculatorFactory._sum($scope.augend, $scope.addend)
 		.then(function (result) {
 
