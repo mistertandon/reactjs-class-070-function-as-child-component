@@ -1,6 +1,9 @@
 angular
 	.module(
-	'calculator.multiplication.controller', []
+	'calculator.multiplication.controller',
+	[
+		'calculator.custom.provider'
+	]
 	)
 	.controller(
 	'CalculatorMultiplicationController',
