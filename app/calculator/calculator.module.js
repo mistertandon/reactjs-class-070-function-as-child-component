@@ -3,8 +3,9 @@
 angular
 	.module('calculator.module', [
 		'ui.router',
+		'calculator.service',
 		'calculator.add.controller',
-		'calculator.service'
+		'calculator.multiplication.controller'
 	])
 	.config([
 		'$stateProvider',
@@ -65,53 +66,19 @@ angular
 			}
 		}
 	])
-	.controller(
-	'CalculatorMultiplicationController',
-	[
-		'$scope',
-		'CalculatorService',
-		function ($scope, CalculatorService) {
-
-			$scope.title = 'Calculator multiplication operation';
-
-			$scope.product = null;
-
-			/**
-			 * `$scope.multiplicationObj` object is reference for `ng-model`:multiplicand|multiplier.
-			 */
-			$scope.multiplicationObj = {
-				'multiplicand': 0,
-				'multiplier': 0
-			};
-
-			/**
-			 * `$scope.multiplyNumbers` function is used to get product of two numbers.
-			 */
-			$scope.multiplyNumbers = function () {
-
-				CalculatorService._multiplication(
-					$scope.multiplicationObj.multiplicand,
-					$scope.multiplicationObj.multiplier,
-					function (result) {
-						$scope.product = result;
-					});
-
-			}
-		}
-	])
 	.config([
-		'CalculatorServiceProvider', function (CalculatorServiceProvider) {
+		'CalculatorCustomProvider', function (CalculatorCustomProvider) {
 
 			let nodeCalculatorAPIUrl = 'http://localhost:3002/calculator/';
 
 			/**
 			 * Configure Node Calculator API url.
 			 */
-			CalculatorServiceProvider.config(nodeCalculatorAPIUrl);
+			CalculatorCustomProvider.config(nodeCalculatorAPIUrl);
 		}
 	])
 	.provider(
-	'CalculatorService',
+	'CalculatorCustom',
 	function () {
 
 		/**
@@ -175,10 +142,3 @@ angular
 		];
 	}
 	);
-
-
-
-
-
-
-
