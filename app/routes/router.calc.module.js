@@ -1,7 +1,8 @@
 angular
 	.module(
 	'storeFrontApp.router.calc.module', [
-		'ui.router'
+		'ui.router',
+		'calculator.factory'
 	])
 	.config([
 		'$stateProvider',
@@ -16,6 +17,7 @@ angular
 		'$scope',
 		'$stateParams',
 		'$state',
+		'CalculatorFactory',
 		CalculatorSumControllerFn
 	]);
 
@@ -84,7 +86,7 @@ function CalculatorControllerFn($scope, $state) {
 /**
  * `CalculatorControllerFn` controls state `sum` behaviour.
  */
-function CalculatorSumControllerFn($scope, $stateParams, $state) {
+function CalculatorSumControllerFn($scope, $stateParams, $state, CalculatorFactory) {
 
 	/**
 	 * Display all configured `states` information.
@@ -93,9 +95,15 @@ function CalculatorSumControllerFn($scope, $stateParams, $state) {
 	console.log($state.get());
 
 	/**
-	 * `$scope.multiplier`, `routeCalculatorSum` state `data` property.
+	 * `$scope.multiplier`, here we are retrieving `routeCalculatorSum` state `data` property.
 	 */
 	$scope.multiplier = parseInt($state.current.data.multiplier, 10);
+
+	/**
+	 * `$scope.isSumCalculated` flag to display processing message into template, until sum is
+	 * 	calculated.
+	 */
+	$scope.isSumCalculated = false;
 
 	/**
 	 * `$scope.augend` i.e augend parameter for sum operation.
@@ -117,7 +125,13 @@ function CalculatorSumControllerFn($scope, $stateParams, $state) {
 	 * `$scope.sum`, contain sum of augend and addend, then multiply by 
 	 * `routeCalculatorSum` state `data` property i.e. multiply with value 6.
 	 */
-	$scope.sum = ($scope.augend + $scope.addend) * $scope.multiplier;
+	//$scope.sum = ($scope.augend + $scope.addend) * $scope.multiplier;
+	CalculatorFactory._sum($scope.augend, $scope.addend)
+		.then(function (result) {
+
+			$scope.isSumCalculated = true;
+			$scope.sum = result;
+		});
 
 	/**
 	 * `$scope.goRouteCalculator` used to navigate application to
@@ -127,5 +141,4 @@ function CalculatorSumControllerFn($scope, $stateParams, $state) {
 
 		$state.go('routeCalculator');
 	}
-
 }
