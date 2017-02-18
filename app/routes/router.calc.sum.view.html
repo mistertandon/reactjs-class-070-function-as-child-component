@@ -1,7 +1,14 @@
 <ul class="list-group">
 	<li class="list-group-item">Augend : {{augend}}</li>
 	<li class="list-group-item">Addend : {{addend}}</li>
-	<li class="list-group-item">Sum : {{sum}}</li>
+	<li class="list-group-item">
+		<span ng-show="!isSumCalculated">
+			Caculation is in process...
+		</span>
+		<span ng-show="isSumCalculated!">
+			Sum : {{sum}}
+		</span>
+	</li>
 
 </ul>
 <hr>
