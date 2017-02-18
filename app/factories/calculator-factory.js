@@ -21,12 +21,8 @@ angular
 					url: 'http://localhost:3002/calculator/add/' + augend + '/' + addend,
 					method: 'GET'
 				});
-				let sum;
 
-				sum = parseInt(augend) + parseInt(addend, 10);
-
-				return sum;
-			};
+			}
 
 			return oCalculatorFactory;
 		}
