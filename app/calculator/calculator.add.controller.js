@@ -32,7 +32,12 @@ angular
 			 */
 			$scope.addNumbers = function () {
 
-				$scope.sum = CalculatorFactory._sum($scope.addObj.augend, $scope.addObj.addend);
+				CalculatorFactory._sum($scope.addObj.augend, $scope.addObj.addend)
+					.then(function (result) {
+
+						$scope.sum = result.data.sum;
+
+					});
 			}
 		}
 	]);

@@ -2,7 +2,8 @@ angular
 	.module('calculator.factory', [])
 	.factory('CalculatorFactory', [
 		'$log',
-		function ($log) {
+		'$http',
+		function ($log, $http) {
 
 			$log.log('initializing calculatorFactory... ');
 			/**
@@ -16,6 +17,10 @@ angular
 			 */
 			oCalculatorFactory._sum = function (augend, addend) {
 
+				return $http({
+					url: 'http://localhost:3002/calculator/add/' + augend + '/' + addend,
+					method: 'GET'
+				});
 				let sum;
 
 				sum = parseInt(augend) + parseInt(addend, 10);
