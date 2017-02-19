@@ -1,11 +1,4 @@
 <h3>{{title}}</h3>
-<div class="col-sm-9 well" demo-compile-process myattr="level-1-directive">
-	Element associated with level-1 directive
-	<div class="col-sm-9 well" demo-compile-process myattr="level-2-directive">
-		Element associated with level-2 directive
-		<div class="col-sm-9 well" demo-compile-process myattr="level-3-directive">
-			Element associated with level-3 directive
-
-		</div>
-	</div>
+<div demo-compile-process ng-repeat="i in [1,2,3]" myattr="{{i}}">
+	Sibling Number: {{i}}
 </div>
