@@ -1,0 +1,27 @@
+<div ng-controller="DataBindingController">
+	<h3>{{title}}</h3>
+	<table class="table table-hover table-stripped">
+
+		<tr>
+			<th>`ng-bind` of Scope variable `var1` :</th>
+			<td>
+				<!--
+					Below we are defining `One way data binding` using `ng-bind`.
+				-->
+				<span ng-bind="var1"></span>
+			</td>
+		</tr>
+		<tr>
+			<th>`ng-model` of Scope variable `var1` :</th>
+			<td>
+				<!--
+					Below we are defining `Two way data binding` using `ng-model`.
+				-->
+				<input name="ng_model_field" type="text" id="var1" class="form-control" ng-model="var2">
+			</td>
+		</tr>
+		<tr>
+			<th colspan="2">{{var2}}</th>
+		</tr>
+	</table>
+</div>

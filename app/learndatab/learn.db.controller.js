@@ -1,16 +1,17 @@
 angular
 	.module(
-	'learn.one-way.db.controller', []
+	'learn.db.controller', []
 	)
 	.controller(
-	'OneWayDataBindingController',
+	'DataBindingController',
 	[
 		'$scope',
 		function ($scope) {
 
 			$scope.title = "Angular One way data binding.";
-
 			$scope.var1 = 50;
+			$scope.var2 = 50;
+
 		}
 	]
 	)

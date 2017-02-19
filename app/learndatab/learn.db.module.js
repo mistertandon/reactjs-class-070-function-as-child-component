@@ -3,7 +3,7 @@ angular
 	'learn.db.module',
 	[
 		'ui.router',
-		'learn.one-way.db.controller'
+		'learn.db.controller'
 	]
 	)
 	.config(
@@ -16,8 +16,8 @@ angular
 				'OneWayBindingDemo',
 				{
 					url: '/one-way-binding-demo',
-					templateUrl: 'learndatab/learn.two-way.db.view.html',
-					controller: 'OneWayDataBindingController'
+					templateUrl: 'learndatab/learn.db.view.html',
+					controller: 'DataBindingController'
 				}
 				);
 		}
