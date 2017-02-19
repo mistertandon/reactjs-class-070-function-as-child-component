@@ -15,7 +15,8 @@
 			'storeFrontApp.router.calc.module',
 			'calculator.module',
 			'movie.module',
-			'learnc.module'
+			'learnc.module',
+			'learn.db.module'
 		])
 		.config([
 			'$stateProvider',
