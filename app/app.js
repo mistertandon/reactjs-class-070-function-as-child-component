@@ -16,7 +16,8 @@
 			'calculator.module',
 			'movie.module',
 			'learnc.module',
-			'learn.db.module'
+			'learn.db.module',
+			'learn-compile-process.module.js'
 		])
 		.config([
 			'$stateProvider',
