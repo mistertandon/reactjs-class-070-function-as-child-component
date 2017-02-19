@@ -4,6 +4,7 @@
 		.module(
 		'storeFrontApp', [
 			'ui.router',
+			'uiRouterStyles',
 			'storeFrontApp.home',
 			'storeFrontApp.user',
 			'storeFrontApp.myCustomerDirective',
@@ -13,7 +14,8 @@
 			'storeFrontApp.router.query_params.module',
 			'storeFrontApp.router.calc.module',
 			'calculator.module',
-			'movie.module'
+			'movie.module',
+			'learnc.module'
 		])
 		.config([
 			'$stateProvider',

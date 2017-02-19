@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="storeFrontApp">
+<html ng-app="storeFrontApp" ui-router-styles>
 
 <head>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
@@ -9,6 +9,8 @@
   <script type="text/javascript" src="bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
   <script type="text/javascript" src="bower_components/angular-ui-router/angular-ui-router.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-router-styles/ui-router-styles.js"></script>
+
   <script type="text/javascript" src="app.js"></script>
 
   <script type="text/javascript" src="factories/calculator-factory.js"></script>
@@ -39,6 +41,10 @@
 
   <!-- Route for `movie`, demonstrating angular filter -->
   <script type="text/javascript" src="movie/movie.module.js"></script>
+
+  <!-- Link for `learnc.module` module -->
+  <script type="text/javascript" src="learnc/learnc.module.js"></script>
+
 
 </head>
 
@@ -77,6 +83,7 @@
           <li role='presentation'><a ui-sref='CalculatorSubtractOperation(null)'>Calculator Subtract</a></li>
           <li role='presentation'><a ui-sref='CalculatorMultiplicationOperation(null)'>Calculator Multiplication</a></li>
           <li role='presentation'><a ui-sref='MovieDetail(null)'>Filter With Movie</a></li>
+          <li role='presentation'><a ui-sref='LearnControllerScope(null)'>Controller Scope</a></li>
 
 
         </ul>
