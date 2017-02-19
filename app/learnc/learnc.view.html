@@ -1,0 +1,78 @@
+<div class="root-scope">
+
+	<table class="table table-hover table-stripped">
+		<tr>
+			<th>`$rootScope` scope</th>
+			<th>Accessing `$rootScope` Scope:{{$parent.title}}</th>
+		</tr>
+	</table>
+
+	<div class="first-controller common-div" ng-controller="FirstController">
+		<table class="table table-hover table-stripped">
+			<tr>
+				<th>`FirstController` scope i.e. `Root level` controller</th>
+				<th>Accessing `FirstController` Scope: {{title}}</th>
+			</tr>
+		</table>
+	</div>
+
+	<div class="second-controller common-div" ng-controller="SecondController">
+		<table class="table table-hover table-stripped">
+			<tr>
+				<th>`SecondController` scope i.e. `Root level` controller</th>
+				<th>Accessing `SecondController` Scope: {{title}}</th>
+			</tr>
+		</table>
+	</div>
+
+	<div class="third-controller common-div" ng-controller="ThirdController">
+		<table class="table table-hover table-stripped">
+			<tr>
+				<th>`ThirdController` scope i.e. `Root level` controller</th>
+				<th>Accessing `ThirdController` Scope: {{title}}</th>
+			</tr>
+		</table>
+	</div>
+	<div class="root-level-div common-div" ng-controller="FirstController">
+
+		<table class="table table-hover table-stripped">
+			<tr>
+				<th>`FirstController` scope i.e. `Root level` controller</th>
+			</tr>
+			<tr>
+				<th>Accessing `FirstController` Scope: {{title}}</th>
+			</tr>
+		</table>
+
+		<div class="level-1-nested-div common-div" ng-controller="SecondController">
+
+			<table class="table table-hover table-stripped">
+				<tr>
+					<th>`SecondController` Scope, nested into `FirstController` Scope.</th>
+				</tr>
+				<tr>
+					<th>Accessing `SecondController` Scope: {{title}}</th>
+				</tr>
+				<tr>
+					<th>Accessing `Parent` controller i.e. `FirstController` scope : {{$parent.title}}</th>
+				</tr>
+			</table>
+
+			<div class="level-2-nested-div common-div" ng-controller="ThirdController">
+
+				<table class="table table-hover table-stripped">
+					<tr>
+						<th>`ThirdController` Scope, nested into `SecondController` Scope.</th>
+					</tr>
+					<tr>
+						<th>Accessing `ThirdController` Scope: {{title}}</th>
+					</tr>
+					<tr>
+						<th>Accessing `Parent` controller i.e. `SecondController` scope : {{$parent.title}}</th>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+	</div>
+</div>
