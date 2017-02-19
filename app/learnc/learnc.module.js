@@ -1,6 +1,17 @@
 angular
 	.module('learnc.module', [
-		'ui.router'
+		'ui.router',
+		'learnc.first.controller',
+		'learnc.second.controller',
+		'learnc.third.controller'
+	])
+	.run(
+	[
+		'$rootScope',
+		function ($rootScope) {
+
+			$rootScope.title = 'Title from $rootScope';
+		}
 	])
 	.config([
 		'$stateProvider',
@@ -18,28 +29,4 @@ angular
 				}
 				);
 		}
-	])
-	.controller(
-	'FirstController', [
-		'$scope',
-		function ($scope) {
-			$scope.title = "Hi from First controller.";
-		}
-	]
-	)
-	.controller(
-	'SecondController', [
-		'$scope',
-		function ($scope) {
-			$scope.title = "Hi from Second controller.";
-		}
-	]
-	)
-	.controller(
-	'ThirdController', [
-		'$scope',
-		function ($scope) {
-			$scope.title = "Hi from Third controller.";
-		}
-	]
-	);
+	]);
