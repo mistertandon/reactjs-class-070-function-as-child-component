@@ -21,7 +21,8 @@
 			'learn.watch.module',
 			'learn-digest.module',
 			'learn-apply.module',
-			'learn-digest-fn.module'
+			'learn-digest-fn.module',
+			'learn-eval-parse-interpolate.module'
 		])
 		.config([
 			'$stateProvider',
