@@ -1,0 +1,91 @@
+<table class="table table-hover table-stripped">
+	<thead>
+		<tr>
+			<th colspan='2'>{{title}}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>`$scope.var_a` two way binding</td>
+			<td>
+
+				<div class="form-group">
+					<label for="var_a"> `$scope.var_a`</label>
+					<input name='var_a' type="text" id="var_a" ng-model="var_a" ng-change="triggerVarA_Watch()">
+				</div>
+
+			</td>
+		</tr>
+		<tr>
+			<td>`$scope.var_a`</td>
+			<td>{{var_a}}</td>
+		</tr>
+		<tr>
+			<th colspan='2'>&nbsp;</th>
+		</tr>
+		<tr>
+			<th colspan='2'>`$watch.group` demonstration</th>
+		</tr>
+		<tr>
+			<td>`$scope.multiplicand` two way binding</td>
+			<td>
+
+				<div class="form-group">
+					<label for="multiplicand"> `$scope.multiplicand`</label>
+					<input name='multiplicand' type="text" id="multiplicand" ng-model="multiplicand">
+				</div>
+
+			</td>
+		</tr>
+		<tr>
+			<td>`$scope.multiplier` two way binding</td>
+			<td>
+
+				<div class="form-group">
+					<label for="multiplier"> `$scope.multiplier`</label>
+					<input name='multiplier' type="text" id="multiplier" ng-model="multiplier">
+				</div>
+
+			</td>
+		</tr>
+		<tr>
+			<td>`$scope.mutliplicand` X `$scope.multiplier`</td>
+			<td>
+				{{productr}}
+			</td>
+		</tr>
+
+		<tr>
+			<th colspan='2'>&nbsp;</th>
+		</tr>
+		<tr>
+			<th colspan='2'>`$watch.watch` with object</th>
+		</tr>
+		<tr>
+			<td>`$scope.multiplicand` with two-way binding</td>
+			<td>
+				<div class="form-group">
+					<label for="obj_multiplicand">
+						`$scope.multiplicationObj.multiplicand` value
+					</label>
+					<input name="obj_multiplicand" type="text" id="obj_multiplicand" ng-model="multiplicationObj.multiplicand">
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>`$scope.multiplier` with two-way binding</td>
+			<td>
+				<div class="form-group">
+					<label for="obj_multiplier">
+						`$scope.multiplicationObj.multiplier` value
+					</label>
+					<input name="obj_multiplier" type="text" id="obj_multiplier" ng-model="multiplicationObj.multiplier">
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan='2'>`$scope.multiplicationObj.productr` value : {{multiplicationObj.productr}}</td>
+		</tr>
+
+	</tbody>
+</table>
