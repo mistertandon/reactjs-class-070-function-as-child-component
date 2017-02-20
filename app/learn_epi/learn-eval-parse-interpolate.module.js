@@ -4,7 +4,8 @@ angular
 	[
 		'ui.router',
 		'learn-eval.controller',
-		'learn-parse.controller'
+		'learn-parse.controller',
+		'learn-interpolate.controller'
 	])
 	.config(
 	[
@@ -25,7 +26,15 @@ angular
 					templateUrl: 'learn_epi/learn-parse.view.html',
 					controller: 'AngularParseController'
 				}
+				)
+				.state(
+				'AngularInterpolateDemo', {
+					url: '/angular-interpolate-demo',
+					templateUrl: 'learn_epi/learn-interpolate.view.html',
+					controller: 'AngularInterpolateController'
+				}
 				);
 		}
 	]
-	);
+	)
+	;
