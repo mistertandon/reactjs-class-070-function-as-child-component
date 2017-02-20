@@ -1,1 +1,44 @@
 <h3>{{title}}</h3>
+<table class="table table-hover table-stripped" id="angularjs-apply-demo">
+	<tr>
+		<th></th>
+	</tr>
+	<tr>
+		<td>`$scope.multiplicand`</td>
+		<td>
+
+			<div class="form-group">
+				<label for="multiplicand">Multiplicand :</label>
+				<input name="multiplicand" type="text" id="multiplicand" class="form-control" ng-model="multiplicand">
+			</div>
+
+		</td>
+	</tr>
+
+	<tr>
+		<td>`$scope.multiplier`</td>
+		<td>
+
+			<div class="form-group">
+				<label for="multiplier">Multiplier :</label>
+				<input name="multiplier" type="text" id="multiplier" class="form-control" ng-model="multiplier">
+			</div>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Multiplication (Resultant from Binding)
+			<button class="btn btn-sm btn-primary" ng-click="calcMultiplication()">Multiply ($binding())</button>
+		</td>
+		<td>{{productr}}</td>
+	</tr>
+
+	<tr>
+		<td>
+			Multiplication (Resultant from apply)
+			<button class="btn btn-sm btn-warning" id="#calc-multiplication-apply" onclick="calcMultiplicationApplyFn()">Multiply ($apply())</button>
+		</td>
+		<td>{{productrAlias}}</td>
+	</tr>
+</table>
