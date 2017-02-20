@@ -18,7 +18,8 @@
 			'learnc.module',
 			'learn.db.module',
 			'learn-compile-process.module.js',
-			'learn.watch.module'
+			'learn.watch.module',
+			'learn-digest.module'
 		])
 		.config([
 			'$stateProvider',
