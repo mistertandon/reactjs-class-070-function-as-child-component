@@ -36,7 +36,7 @@ angular
 				'RootLevelRoute.Tree10Route', {
 					url: '/tree-10-route',
 					views: {
-						'tree-11': {
+						'tree-10': {
 							templateUrl: 'learn_nested_states/tree-10-routes.view.html',
 							controller: 'Tree10RouteController'
 						}
@@ -45,6 +45,23 @@ angular
 						css: [
 
 							'learn_nested_states/tree-10-routes.view.css'
+						]
+					}
+				}
+				)
+				.state(
+				'RootLevelRoute.Tree20Route', {
+					url: '/tree-20-route',
+					views: {
+						'tree-20': {
+							templateUrl: 'learn_nested_states/tree-20-routes.view.html',
+							controller: 'Tree20RouteController'
+						}
+					},
+					data: {
+						css: [
+
+							'learn_nested_states/tree-20-routes.view.html'
 						]
 					}
 				}
@@ -90,6 +107,16 @@ angular
 		function ($scope) {
 
 			$scope.title = "Hello from `Tree11Route`";
+		}
+	]
+	)
+	.controller(
+	'Tree20RouteController',
+	[
+		'$scope',
+		function ($scope) {
+
+			$scope.title = "Hello from `Tree20Route`";
 		}
 	]
 	);
