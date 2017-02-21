@@ -7,8 +7,10 @@ angular
 		'$stateParams',
 		'$state',
 		'CalculatorFactory',
-		function ($scope, $stateParams, $state, CalculatorFactory) {
+		'sumResolveData',
+		function ($scope, $stateParams, $state, CalculatorFactory, sumResolveData) {
 
+			console.log(sumResolveData);
 			/**
 			 * Display all configured `states` information.
 			 * For specific `state` : $state.get('routeCalculator');
