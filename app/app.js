@@ -23,7 +23,8 @@
 			'learn-apply.module',
 			'learn-digest-fn.module',
 			'learn-eval-parse-interpolate.module',
-			'nested-routes.module'
+			'nested-routes.module',
+			'learn-event.module'
 		])
 		.config([
 			'$stateProvider',

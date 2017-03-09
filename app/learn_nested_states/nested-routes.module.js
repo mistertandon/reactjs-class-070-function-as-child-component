@@ -19,32 +19,32 @@ angular
 							templateUrl: 'learn_nested_states/tree-00-routes.view.html',
 							controller: 'Tree00RouteController'
 						},
-						'tree-11@RootLevelRoute': {
-							templateUrl: 'learn_nested_states/tree-11-routes.view.html',
-							controller: 'Tree11RouteController'
-						}
-					},
-					data: {
-						css: [
-							'learn_nested_states/tree-00-routes.view.css',
-							'learn_nested_states/tree-11-routes.view.css'
-						]
-					}
-				}
-				)
-				.state(
-				'RootLevelRoute.Tree10Route', {
-					url: '/tree-10-route',
-					views: {
-						'tree-10': {
+						'tree-10@RootLevelRoute': {
 							templateUrl: 'learn_nested_states/tree-10-routes.view.html',
 							controller: 'Tree10RouteController'
 						}
 					},
 					data: {
 						css: [
-
+							'learn_nested_states/tree-00-routes.view.css',
 							'learn_nested_states/tree-10-routes.view.css'
+						]
+					}
+				}
+				)
+				.state(
+				'RootLevelRoute.Tree11Route', {
+					url: '/tree-11-route',
+					views: {
+						'tree-11': {
+							templateUrl: 'learn_nested_states/tree-11-routes.view.html',
+							controller: 'Tree11RouteController'
+						}
+					},
+					data: {
+						css: [
+
+							'learn_nested_states/tree-11-routes.view.css'
 						]
 					}
 				}
@@ -80,13 +80,13 @@ angular
 	]
 	)
 	.controller(
-	'Tree10RouteController',
+	'Tree11RouteController',
 	[
 		'$scope',
 		'MovieApi',
 		function ($scope, MovieApi) {
 
-			$scope.title = "Hello from `Tree10Route`";
+			$scope.title = "Hello from `Tree11Route`";
 			$scope.isMovieInfoLoading = true;
 
 			MovieApi._neOperatorFilteredMoviesList()
@@ -101,12 +101,12 @@ angular
 	]
 	)
 	.controller(
-	'Tree11RouteController',
+	'Tree10RouteController',
 	[
 		'$scope',
 		function ($scope) {
 
-			$scope.title = "Hello from `Tree11Route`";
+			$scope.title = "Hello from `Tree10Route`";
 		}
 	]
 	)

@@ -1,2 +1,20 @@
 <h3 class="tree-11-title"> {{title}}</h3>
-<div ui-view="tree-20"></div>
+<table class="table table-hover table-stripped" ng-show="movieDetail" ng-hide="isMovieInfoLoading">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Released Date</th>
+			<th>Runtime</th>
+		</tr>
+	</thead>
+	<tr ng-repeat="movieDetail in moviesArr">
+		<td><a ui-sref="RootLevelRoute.Tree20Route(null)">{{movieDetail.title | uppercase}}</a></td>
+		<td>{{movieDetail.released | date:'medium'}}</td>
+		<td>{{movieDetail.runtime}}</td>
+	</tr>
+	<tr>
+</table>
+<div class="col-sm-12 well" ng-show="isMovieInfoLoading">
+
+	Loading...
+</div>
