@@ -1,13 +1,23 @@
-var myinter = function () {
+/**
+ * `myHttpIinterceptor` function is act as $http interceptor.
+ */
+var myHttpIinterceptor = function () {
 
 	var oGithubInterceptor = {};
 
+	/**
+	 * Intercepting `request` using interceptor function.
+	 */
 	oGithubInterceptor.request = function (config) {
 
 		config._timeStamp = new Date().getDate();
 
 		return config;
 	}
+
+	/**
+	 * Intercepting `response` using interceptor function.
+	 */
 	oGithubInterceptor.response = function (response) {
 
 		response.config._resTimeStamp = new Date().getDate();
@@ -34,18 +44,19 @@ angular
 					controller: 'LearnInterceptorController',
 					templateUrl: 'learn_interceptor/learn.interceptor.view.html'
 				});
-			$httpProvider.interceptors.push(myinter);
+			$httpProvider.interceptors.push(myHttpIinterceptor);
 		}
 	])
 	.controller(
 	'LearnInterceptorController', [
 		'$scope',
+		'$q',
 		'GithubService',
-		function ($scope, GithubService) {
+		function ($scope, $q, GithubService) {
 
 			$scope.title = "Learnig $http interceptors";
-			$scope.userGitHubProfile = false;
 
+			$scope.userGitHubProfile = false;
 			$scope.getUserInfo = function () {
 
 				GithubService._getUserGitHubProfile("mistertandon")
@@ -54,13 +65,13 @@ angular
 						$scope.userGitHubProfile = userProfile;
 					});
 			}
+
 		}
 	])
 	.service('GithubService', [
 		'$http',
 		'$log',
 		function ($http, $log) {
-
 
 			this._getUserGitHubProfile = function (user_name) {
 
@@ -70,8 +81,8 @@ angular
 					method: "Get"
 				});
 			}
-		}])
-	;
+
+		}]);
 
 
 
