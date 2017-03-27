@@ -51,8 +51,32 @@ angular
 	'LearnInterceptorController', [
 		'$scope',
 		'$q',
+		'$timeout',
 		'GithubService',
-		function ($scope, $q, GithubService) {
+		function ($scope, $q, $timeout, GithubService) {
+
+			var nameStack, nameStackTimeout;
+
+			$scope.isNameStackAvailable = false;
+			$scope.nameStack = [];
+
+			nameStack = $q.defer();
+
+			nameStack.promise.then(function (name) {
+
+				$scope.nameStack.push(name);
+				$scope.isNameStackAvailable = true;
+
+				$timeout.cancel(nameStackTimeout);
+
+			});
+
+			nameStackTimeout = $timeout(function () {
+
+				nameStack.resolve('parvesh');
+			}, 1000);
+
+
 
 			$scope.title = "Learnig $http interceptors";
 

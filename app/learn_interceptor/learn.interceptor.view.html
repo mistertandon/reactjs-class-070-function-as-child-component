@@ -1,13 +1,19 @@
 <div class="panle panel-default">
 	<div class="panel panel-heading">{{title}}</div>
 	<div class="panel panel-body">
+
 		<div class="form-group">
 			<button class="btn btn-primary btn-sm" ng-click="getUserInfo()">
 				User Profile
 			</button>
 		</div>
+
 		<div class="form-group" ng-if="userGitHubProfile">
 			{{userGitHubProfile}}
 		</div>
+		<div class="form-group" ng-if="isNameStackAvailable">
+			<span class="badge" ng-repeat="name in nameStack">{{name}}</span>
+		</div>
+
 	</div>
 </div>
